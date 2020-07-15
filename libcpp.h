@@ -1,0 +1,63 @@
+// 共通
+//
+#ifndef __libcpp_h__
+#define __libcpp_h__
+
+//C
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdarg.h>
+#include <string.h>
+#include <time.h>
+#include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <arpa/inet.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/rand.h>
+
+//C++
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <array>
+#include <memory>
+#include <thread>
+#include <algorithm>
+#include <functional>
+
+//defines
+#define strnull(x) (x == NULL || x[0] == '\0')
+#define countof(x) sizeof(x) / sizeof(x[0])
+
+//structs
+typedef struct {
+	std::string mName;
+	std::string mText;
+}SParam;
+
+typedef struct {
+	std::string mName;
+	double mValue;
+}SNumber;
+
+//classes
+#include "LFile.h"
+#include "LSocket.h"
+#include "LPgSQL.h"
+#include "LMySQL.h"
+#include "G.h"
+#include "LCgi.h"
+
+#endif //__libcpp_h__
