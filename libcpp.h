@@ -13,6 +13,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <dirent.h>
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/stat.h>
