@@ -4,8 +4,6 @@ CC_DBG	+=	-g
 CC_OPT	+=	-D_GNU_SOURCE -D_USE_PGSQL
 CC_INC	+=	-I/usr/local/include
 CXXFLAGS	+=	$(CC_DBG) $(CC_OPT) $(CC_INC)
-DESTLIB	=	/usr/local/lib
-DESTINC	=	/usr/local/include
 SRCS	=	LFile.cpp LSocket.cpp LPgSQL.cpp LMySQL.cpp G.cpp LCgi.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
