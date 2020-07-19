@@ -37,6 +37,7 @@
 #include <thread>
 #include <algorithm>
 #include <functional>
+#include <unordered_map>
 
 //defines
 #define strnull(x) (x == NULL || x[0] == '\0')
