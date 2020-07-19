@@ -1,6 +1,6 @@
 // ソケット通信
 //
-#include "LSocket.h"
+#include "libcpp.h"
 
 LSocket::LSocket( void )
 {

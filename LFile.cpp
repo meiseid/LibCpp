@@ -1,6 +1,6 @@
 // ファイル
 //
-#include "LFile.h"
+#include "libcpp.h"
 
 LFile::LFile( void )
 {

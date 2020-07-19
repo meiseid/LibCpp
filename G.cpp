@@ -1,6 +1,6 @@
 // 静的ツール
 //
-#include "G.h"
+#include "libcpp.h"
 
 int G::sizeFile( const char *path,time_t *mtime )
 {
@@ -195,6 +195,12 @@ char* G::paramText( const char *key,const std::vector<SParam> &params )
 		}
 	}
 	return NULL;
+}
+
+double G::getMicroTime(void) {
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (((double)tv.tv_sec)*((double)1000000)+((double)tv.tv_usec));
 }
 
 std::string G::clockText( std::string label )

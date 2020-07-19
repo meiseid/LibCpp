@@ -1,7 +1,7 @@
 #ifdef _USE_MYSQL
 // MySQL
 //
-#include "LMySQL.h"
+#include "libcpp.h"
 
 LMySQL::LMySQL( std::string &logstr ) :
 	mLogStr(logstr)

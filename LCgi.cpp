@@ -1,6 +1,6 @@
 // CGIプログラムクラス
 //
-#include "LCgi.h"
+#include "libcpp.h"
 
 LCgi::LCgi( int argc,char **argv )
 {

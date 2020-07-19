@@ -1,7 +1,7 @@
 #ifdef _USE_PGSQL
 // PostgreSQL
 //
-#include "LPgSQL.h"
+#include "libcpp.h"
 
 LPgSQL::LPgSQL(const char *param) {
 	mParam = param;
