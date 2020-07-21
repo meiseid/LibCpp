@@ -1,5 +1,6 @@
 CXX		=	g++
-#CC_DBG	+=	-g -O2
+CC_DBG	+=	-g -O2
+#STRIP	+=	-s
 #CC_OPT	+=	-D_GNU_SOURCE -D_USE_PGSQL -D_USE_MYSQL
 CC_OPT	+=	-D_GNU_SOURCE -D_USE_PGSQL
 CC_OPT	+=	-DLINUX -D_REENTRANT -D_FORTIFY_SOURCE=2 -fPIC -DPIC -fstack-protector-strong
@@ -31,8 +32,8 @@ clean:
 	rm -f *.o *.a *.so *.x .deps
 
 install:  all
-	install -s libcpp.a $(DESTLIB)
-	install -s libcpp.so $(DESTLIB)
+	install $(STRIP) libcpp.a $(DESTLIB)
+	install $(STRIP) libcpp.so $(DESTLIB)
 	ldconfig $(DESTLIB)
 	install -m 0644 libcpp.h $(DESTINC)
 
