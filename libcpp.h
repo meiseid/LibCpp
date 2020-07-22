@@ -41,6 +41,7 @@
 
 //defines
 #define strnull(x) (x == NULL || x[0] == '\0')
+#define setnull(x) (x[0] = '\0')
 #define countof(x) sizeof(x) / sizeof(x[0])
 
 //structs
