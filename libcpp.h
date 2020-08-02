@@ -173,6 +173,8 @@ public:
 	static void getDateText( const struct tm *src,char *dst,size_t len );
 	static int addText( std::string &str,const char *fmt, ... );
 	static int addBigText( std::string &str,const char *fmt, ... );
+	static void wgs84ToTokyo( double lat_w,double lon_w,double *lat_t,double *lon_t );
+	static void tokyoToWgs84( double lat_t,double lon_t,double *lat_w,double *lon_w );
 	static void costText( int cost_num,char *cost_str );
 	static std::string trimingText( const std::string &src );
 	static void headerText( const char *src,char *dst,int count );

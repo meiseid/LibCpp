@@ -281,6 +281,21 @@ int G::addBigText( std::string &str,const char *fmt, ... )
 	return n;
 }
 
+// 世界測地系->日本測地系変換
+// double lat,lon=度単位10進数 例=35.910722,139.459500
+void G::wgs84ToTokyo( double lat_w,double lon_w,double *lat_t,double *lon_t )
+{
+	*lat_t = (lat_w + 0.00010696 * lat_w - 0.000017467 * lon_w - 0.0046020);
+	*lon_t = (lon_w + 0.000046047 * lat_w + 0.000083049 * lon_w - 0.010041);
+}
+
+// 日本測地系->世界測地系変換
+void G::tokyoToWgs84( double lat_t,double lon_t,double *lat_w,double *lon_w )
+{
+	*lat_w = (lat_t - 0.00010695 * lat_t + 0.000017464 * lon_t + 0.0046017);
+	*lon_w = (lon_t - 0.000046038 * lat_t - 0.000083043 * lon_t + 0.010040);
+}
+
 void G::costText( int cost_num,char *cost_str )
 {
 	char cost[32 + 1],tsoc[32 + 1];
