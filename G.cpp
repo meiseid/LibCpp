@@ -296,6 +296,26 @@ void G::tokyoToWgs84( double lat_t,double lon_t,double *lat_w,double *lon_w )
 	*lon_w = (lon_t - 0.000046038 * lat_t - 0.000083043 * lon_t + 0.010040);
 }
 
+// 2点間の距離を算出(M)
+double G::getDistance( double lat_fr, double lon_fr, double lat_to, double lon_to ) {
+
+	// ミリ秒表記に変換
+	int xfr = (int)(lon_fr * 3600000.0);
+	int yfr = (int)(lat_fr * 3600000.0);
+	int xto = (int)(lon_to * 3600000.0);
+	int yto = (int)(lat_to * 3600000.0);
+
+	double xof = xto - xfr;
+	double yof = yto - yfr;
+
+	if( xof < 0 ) xof *= (-1);
+	if( yof < 0 ) yof *= (-1);
+
+	xof *= 2.5; xof /= 100; yof *= 3.0; yof /= 100;
+
+	return sqrt( xof * xof + yof * yof );
+}
+
 void G::costText( int cost_num,char *cost_str )
 {
 	char cost[32 + 1],tsoc[32 + 1];

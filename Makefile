@@ -26,7 +26,7 @@ libcpp.so:	$(OBJS)
 
 # env LD_LIBRARY_PATH=`pwd` ./main.x
 main.x:	main.cpp libcpp.so
-	$(CXX) $(CXXFLAGS) -o $@ $^ -pthread -lssl -lcrypto -lpq
+	$(CXX) $(CXXFLAGS) -o $@ $^ -pthread -lm -lssl -lcrypto -lpq
 
 clean:
 	rm -f *.o *.a *.so *.x .deps
