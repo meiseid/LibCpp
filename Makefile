@@ -22,19 +22,20 @@ libcpp.a:	$(OBJS)
 	ranlib $@
 
 libcpp.so:	$(OBJS)
-	$(CXX) -pthread -shared -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,-soname -Wl,$@ -o $@ $^
+	$(CXX) -pthread -shared -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,-soname -Wl,$@.1 -o $@.1.0 $^
 
 # env LD_LIBRARY_PATH=`pwd` ./main.x
-main.x:	main.cpp libcpp.so
+main.x:	main.cpp libcpp.so.1.0
 	$(CXX) $(CXXFLAGS) -o $@ $^ -pthread -lm -lssl -lcrypto -lpq
 
 clean:
-	rm -f *.o *.a *.so *.x .deps
+	rm -f *.o *.a *.so* *.x .deps
 
 install:  all
-	install $(STRIP) libcpp.a $(DESTLIB)
-	install $(STRIP) libcpp.so $(DESTLIB)
+	install libcpp.a $(DESTLIB)
+	install libcpp.so.1.0 $(DESTLIB)
 	ldconfig $(DESTLIB)
+	ln -f -s -r $(DESTLIB)/libcpp.so.1 $(DESTLIB)/libcpp.so
 	install -m 0644 libcpp.h $(DESTINC)
 
 -include .deps
